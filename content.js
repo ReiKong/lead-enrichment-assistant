@@ -17,9 +17,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // Format name, company, and phone number
     function doFormatting() {
         // Click the paintbrushes
-        const paintbrushes = document.getElementsByClassName("absolute h-4 w-4 -right-5 inset-y-7");
+        const paintbrushes = document.querySelectorAll("span.absolute.h-4.w-4.-right-5.inset-y-7");
         for (const paintbrush of paintbrushes) {
-            paintbrush.click();
+            const svg = paintbrush.querySelector("svg");
+            const color = svg.getAttribute("fill");
+            if (svg.getAttribute("fill") === "#2F80ED") {
+                paintbrush.click();
+            }
         }
     }
 
