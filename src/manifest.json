@@ -1,0 +1,21 @@
+{
+    "name": "Lead Enrichment Assistant",
+    "description": "Speeds up lead enrichment",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    
+    "side_panel": {
+        "default_path": "sidepanel.html"
+    },
+    "permissions": ["activeTab", "scripting", "tabs", "storage", "sidePanel"],
+    "host_permissions": ["<all_urls>"],
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+        }
+    ]
+}
